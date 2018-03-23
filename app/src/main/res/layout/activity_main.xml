@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.hwqgooo.lifecycle.SearchViewModel" />
+
+        <variable
+            name="model"
+            type="com.hwqgooo.lifecycle.SearchViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.hwqgooo.lifecycle.MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model.showString}" />
+
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onTextChanged="@{(text, start, before, count) -> model.setShow(text)}" />
+        <!--android:afterTextChanged="@{(s)-> model.showString.setValue(s.toString())}" />-->
+
+    </LinearLayout>
+</layout>
